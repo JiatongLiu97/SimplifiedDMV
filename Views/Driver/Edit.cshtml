@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+}
+@using SimplifiedDMV.Models
+@model SimplifiedDMV.Models.ViewModels.DriverViewModel
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary ">Edit driver</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <input asp-for="DriverModel.Id" class="form-control" hidden/>
+        <div class="mb-3">
+            <label asp-for="DriverModel.FirstName"></label>
+            <input asp-for="DriverModel.FirstName" class="form-control" />
+            <span asp-validation-for="DriverModel.FirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DriverModel.LastName"></label>
+            <input asp-for="DriverModel.LastName" class="form-control" />
+            <span asp-validation-for="DriverModel.LastName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DriverModel.PhoneNumber"></label>
+            <input asp-for="DriverModel.PhoneNumber" class="form-control" />
+            <span asp-validation-for="DriverModel.PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DriverModel.Address"></label>
+            <input asp-for="DriverModel.Address" class="form-control" />
+            <span asp-validation-for="DriverModel.Address" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DriverModel.State"></label>
+            <select asp-items="Model.StatesSelectList" asp-for="DriverModel.State" class="form-select"></select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="DriverModel.ZipCode"></label>
+            <input asp-for="DriverModel.ZipCode" class="form-control" />
+            <span asp-validation-for="DriverModel.ZipCode" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+        <a asp-controller="Driver" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

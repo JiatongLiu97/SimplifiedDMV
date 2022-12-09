@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+@using SimplifiedDMV.Models
+@model SimplifiedDMV.Models.ViewModels.RegisterVehicleViewModel
+
+<form asp-controller="Vehicle" asp-action="Delete" method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary ">Delete the vehicle id: @Model.VehicleId</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <input asp-for="DriverId" class="form-control" hidden />
+        <input asp-for="VehicleId" class="form-control" hidden/>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.Id"></label>
+            <input asp-for="VehicleModel.Id" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.Type"></label>
+            <input asp-for="VehicleModel.Type" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.Brand"></label>
+            <input asp-for="VehicleModel.Brand" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.Model"></label>
+            <input asp-for="VehicleModel.Model" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.Year"></label>
+            <input asp-for="VehicleModel.Year" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.VinNumber"></label>
+            <input asp-for="VehicleModel.VinNumber" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+        <a asp-controller="Driver" asp-action="Detail" asp-route-id="@Model.DriverId" class="btn btn-secondary" style="width:150px">
+            Back to driver's vehicles
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

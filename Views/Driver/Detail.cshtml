@@ -1,0 +1,139 @@
+﻿@model SimplifiedDMV.Models.ViewModels.VehiclesViewModel
+@{
+    ViewData["Title"] = "Detail";
+    int displayOrder = 0;
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Vehicles resgistered under driver with id: @Model.DriverId</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Vehicle" asp-action="Create" asp-route-id="@Model.DriverId" class="btn btn-primary">
+                <i class="bi bi-plus"></i> &nbsp; Register New Vehicle
+            </a>
+        </div>
+    </div>
+    <br />
+
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Vehicle Id
+                </th>
+                <th>
+                    Driver's First Name
+                </th>
+                <th>
+                    Driver's Last Name
+                </th>
+                <th>
+                    Driver Id
+                </th>
+                <th>
+                    Vin Number
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Brand
+                </th>
+                <th>
+                    Model
+                </th>
+                <th>
+                    Year
+                </th>
+                <th>
+                    Register Date
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.VehiclesToDisplay)
+            {
+                displayOrder += 1;
+
+                <tr>
+                    <td>
+                        @obj.Id
+                    </td>
+                    <td>
+                        @obj.Driver.FirstName
+                    </td>
+                    <td>
+                        @obj.Driver.LastName
+                    </td>
+                    <td>
+                        @obj.Driver.Id
+                    </td>
+                    <td>
+                        @obj.VinNumber
+                    </td>
+                    <td>
+                        @obj.Type
+                    </td>
+                    <td>
+                        @obj.Brand
+                    </td>
+                    <td>
+                        @obj.Model
+                    </td>
+                    <td>
+                        @obj.Year
+                    </td>
+                    <td>
+                        @obj.RegisteredDateTime
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-controller="Vehicle" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2 rounded"> <i class="bi bi-pencil-fill"></i> Edit</a>
+                            <a asp-controller="Vehicle" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger  mx-2 rounded"> <i class="bi bi-trash"></i> Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @{
+        var prevDisabled = !Model.VehiclesToDisplay.PreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.VehiclesToDisplay.NextPage ? "disabled" : "";
+        var next1Disabled = (Model.VehiclesToDisplay.PageIndex + 1 > Model.VehiclesToDisplay.TotalPages) ? "disabled" : "";
+        var next2Disabled = (Model.VehiclesToDisplay.PageIndex + 2 > Model.VehiclesToDisplay.TotalPages) ? "disabled" : "";
+        var next3Disabled = (Model.VehiclesToDisplay.PageIndex + 3 > Model.VehiclesToDisplay.TotalPages) ? "disabled" : "";
+        var next4Disabled = (Model.VehiclesToDisplay.PageIndex + 4 > Model.VehiclesToDisplay.TotalPages) ? "disabled" : "";
+    }
+    <div>
+        <ul class="pagination pagination-lg">
+            <li class="page-item @prevDisabled">
+                <a class="page-link" asp-action="Detail" asp-route-pageNumber="@(Model.VehiclesToDisplay.PageIndex-1)">&laquo;</a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" asp-action="Detail" asp-route-pageNumber="@Model.VehiclesToDisplay.PageIndex">@Model.VehiclesToDisplay.PageIndex</a>
+            </li>
+            <li class="page-item @next1Disabled">
+                <a class="page-link" asp-action="Detail" asp-route-pageNumber="@(Model.VehiclesToDisplay.PageIndex + 1)">@(Model.VehiclesToDisplay.PageIndex + 1)</a>
+            </li>
+            <li class="page-item @next2Disabled">
+                <a class="page-link" asp-action="Detail" asp-route-pageNumber="@(Model.VehiclesToDisplay.PageIndex + 2)">@(Model.VehiclesToDisplay.PageIndex + 2)</a>
+            </li>
+            <li class="page-item @next3Disabled">
+                <a class="page-link" asp-action="Detail" asp-route-pageNumber="@(Model.VehiclesToDisplay.PageIndex + 3)">@(Model.VehiclesToDisplay.PageIndex + 3)</a>
+            </li>
+            <li class="page-item @next4Disabled">
+                <a class="page-link" asp-action="Detail" asp-route-pageNumber="@(Model.VehiclesToDisplay.PageIndex + 4)">@(Model.VehiclesToDisplay.PageIndex + 4)</a>
+            </li>
+            <li class="page-item @nextDisabled">
+                <a class="page-link" asp-action="Detail" asp-route-pageNumber="@(Model.VehiclesToDisplay.PageIndex+1)">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+

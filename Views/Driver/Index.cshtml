@@ -1,0 +1,125 @@
+﻿@model PaginatedList<Driver>
+@{
+    ViewData["Title"] = "Index";
+    int displayOrder = 0;
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Driver List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Driver" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus"></i> &nbsp; Register New Driver
+            </a>
+        </div>
+    </div>
+    <br />
+
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Driver Id
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    State
+                </th>
+                <th>
+                    Zip Code
+                </th>
+                <th>
+                    Register Date
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.Id
+                    </td>
+                    <td>
+                        @obj.FirstName
+                    </td>
+                    <td>
+                        @obj.LastName
+                    </td>
+                    <td>
+                        @obj.PhoneNumber
+                    </td>
+                    <td>
+                        @obj.Address
+                    </td>
+                    <td>
+                        @obj.State
+                    </td>
+                    <td>
+                        @obj.ZipCode
+                    </td>
+                    <td>
+                        @obj.RegisteredDateTime
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-controller="Driver" asp-action="Detail" asp-route-id="@obj.Id" class="btn btn-primary  mx-2 rounded"> <i class="bi bi-car-front-fill"></i> Detials</a>
+                            <a asp-controller="Driver" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2 rounded"> <i class="bi bi-pencil-fill"></i> Edit</a>
+                            <a asp-controller="Driver" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger  mx-2 rounded"> <i class="bi bi-trash"></i> Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @{
+        var prevDisabled = !Model.PreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.NextPage ? "disabled" : "";
+        var next1Disabled = (Model.PageIndex + 1 > Model.TotalPages) ? "disabled" : "";
+        var next2Disabled = (Model.PageIndex + 2 > Model.TotalPages) ? "disabled" : "";
+        var next3Disabled = (Model.PageIndex + 3 > Model.TotalPages) ? "disabled" : "";
+        var next4Disabled = (Model.PageIndex + 4 > Model.TotalPages) ? "disabled" : "";
+    }
+    <div>
+        <ul class="pagination pagination-lg">
+            <li class="page-item @prevDisabled">
+                <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageIndex-1)">&laquo;</a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" asp-action="Index" asp-route-pageNumber="@Model.PageIndex">@Model.PageIndex</a>
+            </li>
+            <li class="page-item @next1Disabled">
+                <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)">@(Model.PageIndex + 1)</a>
+            </li>
+            <li class="page-item @next2Disabled">
+                <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 2)">@(Model.PageIndex + 2)</a>
+            </li>
+            <li class="page-item @next3Disabled">
+                <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 3)">@(Model.PageIndex + 3)</a>
+            </li>
+            <li class="page-item @next4Disabled">
+                <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 4)">@(Model.PageIndex + 4)</a>
+            </li>
+            <li class="page-item @nextDisabled">
+                <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageIndex+1)">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+    
+
+</div>

@@ -1,0 +1,50 @@
+﻿@using SimplifiedDMV.Models
+@model SimplifiedDMV.Models.ViewModels.RegisterVehicleViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form asp-controller="Vehicle" asp-action="Create" method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary ">Register new vehicle for Driver id: @Model.DriverId</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All"></div>*@
+        <input asp-for="DriverId" class="form-control" hidden/>
+        <input asp-for="VehicleModel.Id" class="form-control" hidden/>
+        <input asp-for="VehicleModel.DriverId" class="form-control" hidden />
+        <div class="mb-3">
+            <label asp-for="VehicleModel.Type"></label>
+            <select asp-items="Model.TypesSelectList" asp-for="VehicleModel.Type" class="form-select"></select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.Brand"></label>
+            <select asp-items="Model.BrandsSelectList" asp-for="VehicleModel.Brand" class="form-select"></select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.Model"></label>
+            <input asp-for="VehicleModel.Model" class="form-control" />
+            <span asp-validation-for="VehicleModel.Model" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.Year"></label>
+            <select asp-items="Model.YearsSelectList" asp-for="VehicleModel.Year" class="form-select"></select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="VehicleModel.VinNumber"></label>
+            <input asp-for="VehicleModel.VinNumber" class="form-control" />
+            <span asp-validation-for="VehicleModel.VinNumber" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Register</button>
+        <a asp-controller="Driver" asp-action="Detail" asp-route-id="@Model.DriverId" class="btn btn-secondary" style="width:150px">
+            Back to driver
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
