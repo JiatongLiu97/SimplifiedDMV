@@ -9,21 +9,21 @@ This is a program which mimics the DMV system in simplified version. The project
 
 2- Delete Drivers - User can remove a driver from the system.
 
-![Driver data](/Images_demo/Driver delete.png?raw=true "Driver Data title")
+![Driver data](/Images_demo/Driver_delete.png?raw=true "Driver Data title")
 
 3- Add Drivers - User can add a driver into the system.
 
-![Driver data](/Images_demo/Register driver.png?raw=true "Driver Data title")
+![Driver data](/Images_demo/Register_driver.png?raw=true "Driver Data title")
 
-![Driver data](/Images_demo/Register driver selectlist.png?raw=true "Driver Data title")
+![Driver data](/Images_demo/Register_driver_selectlist.png?raw=true "Driver Data title")
 
 3- Edit Drivers - User can edit the information of a driver which includes Last name, first name, address, phone number, address.
 
-![Driver data](/Images_demo/Driver edit.png?raw=true "Driver Data title")
+![Driver data](/Images_demo/Driver_edit.png?raw=true "Driver Data title")
 
 4- Search Drivers - User can search for a driver or a group of drivers through the first name of driver, based on a text query string.
 
-![Driver data](/Images_demo/Driver search.png?raw=true "Driver Data title")
+![Driver data](/Images_demo/Driver_search.png?raw=true "Driver Data title")
 
 5- Display vehicles - User can click on a driver to view all vehicles registered under the driver. Vehicles are displayed with their information in table form with pagination. 
 
@@ -31,15 +31,17 @@ This is a program which mimics the DMV system in simplified version. The project
 
 6- Add vehicles - User can register a new vehicle for a driver. 
 
-![Driver data](/Images_demo/Vehicle register selectList.png?raw=true "Driver Data title")
+![Driver data](/Images_demo/Vehicle_register.png?raw=true "Driver Data title")
+
+![Driver data](/Images_demo/Vehicle_register_selectList.png?raw=true "Driver Data title")
 
 7- Edit vehicles - User can edit a vehicle.
 
-![Driver data](/Images_demo/Vehicle edit.png?raw=true "Driver Data title")
+![Driver data](/Images_demo/Vehicle_edit.png?raw=true "Driver Data title")
 
 8- Delete vehicles - User can delte a vehicle from the system.
 
-![Driver data](/Images_demo/Vehicle delete.png?raw=true "Driver Data title")
+![Driver data](/Images_demo/Vehicle_delete.png?raw=true "Driver Data title")
 
 ## Getting Started 
 
