@@ -4,7 +4,7 @@ This is a program which mimics the DMV system in simplified version. The project
 
 1- Display Drivers - Displaying all drivers in the system in a table form with pagination, each page shows 8 drivers at most. users can click on pagination bar to view drivers on a different page. Last name, first name, address, phone number, address, resigration date and id of the driver are displayed for each driver. 
 
-![Driver](/repository/Image_demo/Driver List.png?raw=true "")
+![Driver](/Image_demo/Driver List.png?raw=true "")
 
 2- Delete Drivers - User can remove a driver from the system.
 
