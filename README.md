@@ -38,7 +38,7 @@ This is a program which mimics the DMV system in simplified version. The project
 
 ![Driver data](/Images_demo/Vehicle_edit.png?raw=true "Driver Data title")
 
-8- Delete vehicles - User can delte a vehicle from the system.
+8- Delete vehicles - User can delete a vehicle from the system.
 
 ![Driver data](/Images_demo/Vehicle_delete.png?raw=true "Driver Data title")
 
