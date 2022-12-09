@@ -2,6 +2,8 @@
 
 This is a program which mimics the DMV system in simplified version. The project is based on ASP.NET Core MVC(.NET 6) in C# language. The following are functionalities of SimplifiedDMV.
 
+0- Login/Logout with authentication.
+
 1- Display Drivers - Displaying all drivers in the system in a table form with pagination, each page shows 8 drivers at most. users can click on pagination bar to view drivers on a different page. Last name, first name, address, phone number, address, resigration date and id of the driver are displayed for each driver. 
 
 ![Driver data](/Images_demo/Driver_List.png?raw=true "Driver Data title")
